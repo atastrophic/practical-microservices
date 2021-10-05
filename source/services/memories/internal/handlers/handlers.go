@@ -3,6 +3,7 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/atastrophic/practical-microservices/internal/models/api"
 	"github.com/atastrophic/practical-microservices/internal/workflows"
 	"github.com/labstack/echo"
 )
@@ -23,7 +24,7 @@ func (h Handler) GetMemories(c echo.Context) error {
 		return err
 	}
 
-	return c.JSON(http.StatusOK, memories)
+	return c.JSON(http.StatusOK, api.MemoriesResponse{Data: memories})
 }
 
 func (handler Handler) GetMemory(c echo.Context) error {
